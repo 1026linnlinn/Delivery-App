@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mounts.lenovo.delivery3.activity.Home">
+    tools:context="">
 
     <LinearLayout
         android:layout_width="406dp"
@@ -30,8 +30,8 @@
                 android:text="Add Order"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
-        </LinearLayout></LinearLayout>
-
+        </LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
