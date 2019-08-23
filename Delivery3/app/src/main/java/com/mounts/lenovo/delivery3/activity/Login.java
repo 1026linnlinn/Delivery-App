@@ -123,7 +123,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    Intent intent = new Intent(getApplicationContext(), Main.class);
 //                    intent.putExtra("Token", token);
                     startActivity(intent);
                     Log.e("Login", "true");

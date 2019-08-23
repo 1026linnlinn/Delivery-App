@@ -1,9 +1,11 @@
 package com.mounts.lenovo.delivery3.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.fragment.GalleryFragment;
@@ -22,8 +25,13 @@ import com.mounts.lenovo.delivery3.fragment.NewFragment;
 import com.mounts.lenovo.delivery3.fragment.OrderFragment;
 import com.mounts.lenovo.delivery3.fragment.ReceiverOrderFragment;
 
+import static android.view.View.VISIBLE;
+
 public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Toolbar toolbar;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +40,27 @@ public class Main extends AppCompatActivity
 
         Log.e("hey", "Main now!");
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
+        floatingActionButton = findViewById(R.id.fab);
 //        setSupportActionBar(toolbar);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.isDrawerOpen(GravityCompat.START);
+            }
+        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+//        navigationView.setNavigationItemSelectedListener(this);
+        setFragment(new MapFragment());
 
-        setFragment(new OrderFragment());
     }
 
     @Override
@@ -77,43 +95,52 @@ public class Main extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("RestrictedApi")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment fragment = null;
 
         if (id == R.id.nav_home) {
-            fragment = new HomeFragment();
-            setFragment(fragment);
+            toolbar.setVisibility(VISIBLE);
+            floatingActionButton.setVisibility(View.GONE);
+            setFragment(new HomeFragment());
+
         } else if (id == R.id.nav_receive) {
-            fragment = new ReceiverOrderFragment();
-            setFragment(fragment);
+            toolbar.setVisibility(VISIBLE);
+            floatingActionButton.setVisibility(View.GONE);
+            setFragment(new ReceiverOrderFragment());
 
         } else if (id == R.id.nav_send) {
-            fragment = new ReceiverOrderFragment();
-            setFragment(fragment);
-
-        } else if (id == R.id.nav_main) {
-            fragment = new OrderFragment();
-            setFragment(fragment);
+            toolbar.setVisibility(VISIBLE);
+            floatingActionButton.setVisibility(View.GONE);
+            setFragment(new ReceiverOrderFragment());
 
         } else if (id == R.id.nav_map) {
-
-            fragment = new MapFragment();
-            setFragment(fragment);
-
+            toolbar.setVisibility(View.GONE);
+            floatingActionButton.setVisibility(View.VISIBLE);
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                    if (drawer.isDrawerOpen(GravityCompat.START)) {
+                        drawer.closeDrawer(GravityCompat.START);
+                    } else {
+                        drawer.openDrawer(GravityCompat.START);
+                    }
+                }
+            });
+            setFragment(new MapFragment());
         } else if (id == R.id.nav_tools) {
-
-            fragment = new GalleryFragment();
-            setFragment(fragment);
+            toolbar.setVisibility(VISIBLE);
+            floatingActionButton.setVisibility(View.GONE);
+            setFragment(new ReceiverOrderFragment());
 
         } else if (id == R.id.nav_share) {
-
-            fragment = new NewFragment();
-            setFragment(fragment);
-
+            toolbar.setVisibility(VISIBLE);
+            floatingActionButton.setVisibility(View.GONE);
+            setFragment(new ReceiverOrderFragment());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -123,8 +150,10 @@ public class Main extends AppCompatActivity
 
     protected void setFragment(Fragment fragment) {
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment_container, fragment);
+//        fragmentTransaction.commit();
     }
 }
