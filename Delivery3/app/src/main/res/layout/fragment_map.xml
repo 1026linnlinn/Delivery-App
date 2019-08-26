@@ -21,19 +21,24 @@
         <Button
             android:id="@+id/btnNextOrder"
             android:layout_width="200dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/mapbtn"
-            android:backgroundTint="@color/white"
-            android:drawableLeft="@drawable/search"
+            android:drawableStart="@drawable/search"
             android:hint="Next Order"
+            android:paddingStart="40dp"
             android:paddingLeft="40dp"
+            android:paddingEnd="10dp"
             android:paddingRight="10dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText"
+            android:drawableLeft="@drawable/search" />
+
+
     </RelativeLayout>
 
 
