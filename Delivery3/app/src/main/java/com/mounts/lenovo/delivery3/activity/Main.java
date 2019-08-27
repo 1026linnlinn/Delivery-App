@@ -1,6 +1,7 @@
 package com.mounts.lenovo.delivery3.activity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -162,7 +163,7 @@ public class Main extends AppCompatActivity
 
         } else if (id == R.id.nav_map) {
             toolbar.setVisibility(View.GONE);
-            mSearchView.setVisibility(VISIBLE);
+            mSearchView.setVisibility(View.VISIBLE);
             mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
                 @Override
                 public void onSearchTextChanged(String oldQuery, final String newQuery) {
@@ -196,6 +197,7 @@ public class Main extends AppCompatActivity
 
     protected void setFragment(Fragment fragment) {
 
+//        toolbar.setVisibility(View.GONE);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

@@ -3,10 +3,13 @@
     <color name="colorPrimary">#8EB691</color>
     <color name="colorPrimaryDark">#8EB691</color>
     <color name="colorAccent">#8EB691</color>
+    <color name="bayleaf">#8EB691</color>
     <color name="ic_launcher_background">#8EB691</color>
     <color name="textColor">#424242</color>
     <color name="white">#ffffff</color>
     <color name="black">#111111</color>
     <color name="gray">#eeeeee</color>
-
+    <color name="red">#EE0A0A</color>
+    <color name="yellow">#FFFFEB3B</color>
+    <color name="transparent">@android:color/transparent</color>
 </resources>

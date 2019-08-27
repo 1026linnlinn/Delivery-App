@@ -8,10 +8,19 @@
     tools:context=".activity.Main"
     tools:showIn="@layout/app_bar_main2">
 
+    <!--<com.arlib.floatingsearchview.FloatingSearchView-->
+        <!--android:id="@+id/floating_search_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="@color/transparent"-->
+        <!--android:visibility="gone"-->
+        <!--app:floatingSearch_close_search_on_keyboard_dismiss="true"-->
+        <!--app:floatingSearch_leftActionMode="showHamburger"-->
+        <!--app:floatingSearch_searchHint="Search..." />-->
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-     />
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

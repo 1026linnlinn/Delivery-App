@@ -136,7 +136,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //                        editor.apply();
 //                        editor.commit();
 
-                    intent = new Intent(getApplicationContext(), Home.class);
+                    intent = new Intent(getApplicationContext(), Main.class);
 //                    intent.putExtra("Token", response.body().sessionId);
                     startActivity(intent);
 
