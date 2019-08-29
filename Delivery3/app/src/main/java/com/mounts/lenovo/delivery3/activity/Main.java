@@ -18,7 +18,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.fragment.MapFragment;
@@ -30,10 +29,7 @@ public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
-    private FloatingActionButton floatingActionButton;
-    private FloatingSearchView mSearchView;
-    private SearchView searchView;
-    private DrawerLayout drawerLayout;
+    private FloatingSearchView floatingSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,74 +37,21 @@ public class Main extends AppCompatActivity
         setContentView(R.layout.activity_main2);
 
         Log.e("hey", "Main now!");
-
         toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         toolbar.setVisibility(View.GONE);
-//        floatingActionButton = findViewById(R.id.fab);
-        mSearchView = findViewById(R.id.floating_search_view);
-//        searchView = findViewById(R.id.searchView);
-
-//        searchView.setQueryHint("Search View");
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                Toast.makeText(getBaseContext(), query, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                Toast.makeText(getBaseContext(), newText, Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//        });
-
-//        setSupportActionBar(toolbar);
-
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                DrawerLayout drawer = findViewById(R.id.drawer_layout);
-//                if (drawer.isDrawerOpen(GravityCompat.START)) {
-//                    drawer.closeDrawer(GravityCompat.START);
-//                } else {
-//                    drawer.openDrawer(GravityCompat.START);
-//                }
-//            }
-//        });
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        floatingSearchView = findViewById(R.id.floating_search_view);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+//        floatingSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        Log.e("MapFragment", "Arrive...");
         setFragment(new MapFragment());
-        setupFloatingSearch();
-
     }
 
-    private void setupFloatingSearch() {
-//        mSearchView = findViewById(R.id.floating_search_view);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-            @Override
-            public void onSearchTextChanged(String oldQuery, final String newQuery) {
-//                List<SearchSuggestion> list = new ArrayList<SearchSuggestion>();
-//                //emulating search on dummy data
-//                for (String item : SOME_HARDCODED_DATA) {
-//                    if (item.contains(newQuery)) {
-//                        list.add(new SimpleSuggestions(item));
-//                    }
-//                }
-//                mSearchView.swapSuggestions(list);
-            }
-        });
-        mSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
-
-    }
 
     @Override
     public void onBackPressed() {
@@ -122,19 +65,14 @@ public class Main extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -151,44 +89,19 @@ public class Main extends AppCompatActivity
 
         if (id == R.id.nav_receive) {
             toolbar.setVisibility(VISIBLE);
-            mSearchView.setVisibility(View.GONE);
-//            floatingActionButton.setVisibility(View.GONE);
+//            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
 
         } else if (id == R.id.nav_send) {
             toolbar.setVisibility(VISIBLE);
-            mSearchView.setVisibility(View.GONE);
-//            floatingActionButton.setVisibility(View.GONE);
+//            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
 
         } else if (id == R.id.nav_map) {
             toolbar.setVisibility(View.GONE);
-            mSearchView.setVisibility(View.VISIBLE);
-            mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
-                @Override
-                public void onSearchTextChanged(String oldQuery, final String newQuery) {
-                }
-            });
-            mSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
+//            floatingSearchView.setVisibility(View.VISIBLE);
             setFragment(new MapFragment());
         }
-//
-//        else if (id == R.id.nav_map) {
-//            toolbar.setVisibility(View.GONE);
-//            floatingActionButton.setVisibility(View.VISIBLE);
-//            floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    DrawerLayout drawer = findViewById(R.id.drawer_layout);
-//                    if (drawer.isDrawerOpen(GravityCompat.START)) {
-//                        drawer.closeDrawer(GravityCompat.START);
-//                    } else {
-//                        drawer.openDrawer(GravityCompat.START);
-//                    }
-//                }
-//            });
-//            setFragment(new MapFragment());
-//        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -197,11 +110,15 @@ public class Main extends AppCompatActivity
 
     protected void setFragment(Fragment fragment) {
 
-//        toolbar.setVisibility(View.GONE);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, fragment).commit();
 
-//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.fragment_container, fragment);
-//        fragmentTransaction.commit();
     }
+//
+//    protected void setFragmentMap(Fragment fragment) {
+//
+//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_map, fragment).commit();
+//
+//    }
+
+
 }

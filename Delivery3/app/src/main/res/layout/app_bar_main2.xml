@@ -6,33 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".activity.Main">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/gray"
-        android:theme="@style/hello"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white" />
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <com.arlib.floatingsearchview.FloatingSearchView
-            android:id="@+id/floating_search_view"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/bayleaf"
-            app:floatingSearch_actionMenuOverflowColor="@color/red"
-            app:floatingSearch_close_search_on_keyboard_dismiss="true"
-            app:floatingSearch_leftActionMode="showHamburger"
-            app:floatingSearch_searchHint="Search..."
-            app:floatingSearch_showSearchKey="true" />
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--android:background="?attr/colorPrimary"-->
+    <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
-    </com.google.android.material.appbar.AppBarLayout>
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
 
-    <include layout="@layout/content_main2" />
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginRight="20dp">-->
+
+    <!--<com.arlib.floatingsearchview.FloatingSearchView-->
+    <!--android:id="@+id/floating_search_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:floatingSearch_close_search_on_keyboard_dismiss="true"-->
+    <!--app:floatingSearch_leftActionMode="showHamburger"-->
+    <!--app:floatingSearch_searchHint="Search..."-->
+    <!--app:floatingSearch_showSearchKey="true" />-->
+
+    <!--</androidx.appcompat.widget.Toolbar>-->
+
+    <include layout="@layout/content_main2"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

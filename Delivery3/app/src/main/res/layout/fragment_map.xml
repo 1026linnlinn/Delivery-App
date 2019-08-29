@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -14,10 +12,31 @@
         android:layout_height="match_parent"
         tools:context=".fragment.MapFragment" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp">
+
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/floating_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_leftActionMode="showHamburger"
+            app:floatingSearch_searchHint="Search..."
+            app:floatingSearch_showSearchKey="true" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <RelativeLayout
         android:id="@+id/layoutLogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:padding="40dp">
 
         <Button
@@ -31,14 +50,14 @@
             android:layout_marginRight="20dp"
             android:background="@drawable/mapbtn"
             android:drawableStart="@drawable/search"
+            android:drawableLeft="@drawable/search"
             android:hint="Next Order"
             android:paddingStart="40dp"
             android:paddingLeft="40dp"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"
             android:textColor="@color/black"
-            tools:ignore="HardcodedText"
-            android:drawableLeft="@drawable/search" />
+            tools:ignore="HardcodedText" />
 
 
     </RelativeLayout>

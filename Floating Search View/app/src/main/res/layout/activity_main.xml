@@ -6,10 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- The main content view -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
 
         <com.arlib.floatingsearchview.FloatingSearchView
             android:id="@+id/floating_search_view"
@@ -21,7 +17,6 @@
             app:floatingSearch_searchHint="Search..."
             app:floatingSearch_showSearchKey="true" />
 
-    </com.google.android.material.appbar.AppBarLayout>
     <!-- The navigation drawer -->
     <LinearLayout
         android:id="@+id/left_drawer"
