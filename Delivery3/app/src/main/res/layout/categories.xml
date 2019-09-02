@@ -1,17 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:background="#fff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.Categories">
 
-    <technolifestyle.com.imageslider.FlipperLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-    </technolifestyle.com.imageslider.FlipperLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchViewCategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/forsearchview"
+                    app:queryHint="Search for restaurants..." />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
+                    android:layout_below="@+id/searchViewCategories" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewCategories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:background="#FFFFFF"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/layout_card_horizontal" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.google.android.material.navigation.NavigationView;
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.fragment.CategoriesFragment;
 import com.mounts.lenovo.delivery3.fragment.MapFragment;
 import com.mounts.lenovo.delivery3.fragment.ReceiverOrderFragment;
 
@@ -101,6 +102,9 @@ public class Main extends AppCompatActivity
             toolbar.setVisibility(View.GONE);
 //            floatingSearchView.setVisibility(View.VISIBLE);
             setFragment(new MapFragment());
+        } else if (id == R.id.nav_categories) {
+            toolbar.setVisibility(VISIBLE);
+            setFragment(new CategoriesFragment());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

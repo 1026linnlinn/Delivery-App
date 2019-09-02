@@ -54,8 +54,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         // Inflate the layout for this fragment
         Log.e("MapFragment", "Arrive");
         final View view = inflater.inflate(R.layout.acitivity_map_fragment, container, false);
-
-
         btnNextOrder = view.findViewById(R.id.btnNextOrder);
         floatingSearchView = view.findViewById(R.id.floating_search_view);
         DrawerLayout drawerLayout = view.findViewById(R.id.drawer_layout_map);

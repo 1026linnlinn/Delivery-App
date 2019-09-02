@@ -42,12 +42,6 @@ public class ReceiverOrderFragment extends Fragment implements View.OnClickListe
         txt2 = view.findViewById(R.id.text2);
         txt3 = view.findViewById(R.id.text3);
         btnTrack = view.findViewById(R.id.btnTrack);
-
-//        txt1.setOnClickListener(this);
-//        txt2.setOnClickListener(this);
-//        txt3.setOnClickListener(this);
-//        btn.setOnClickListener(this);
-
         adapter = new NewAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
