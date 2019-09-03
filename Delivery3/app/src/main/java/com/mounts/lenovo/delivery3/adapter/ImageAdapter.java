@@ -1,4 +1,4 @@
-package com.mounts.lenovo.delivery3.activity;
+package com.mounts.lenovo.delivery3.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -23,7 +23,7 @@ public class ImageAdapter extends PagerAdapter {
     }
 
     private int[] sliderImageId = new int[]{
-            R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4, R.drawable.img5};
+            R.drawable.img1, R.drawable.images1, R.drawable.img4, R.drawable.donut, R.drawable.img5};
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {

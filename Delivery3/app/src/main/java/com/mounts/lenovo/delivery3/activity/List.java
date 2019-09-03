@@ -1,58 +1,51 @@
 package com.mounts.lenovo.delivery3.activity;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import android.view.View;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 
-import com.arlib.floatingsearchview.FloatingSearchView;
+import android.view.MenuItem;
+
 import com.google.android.material.navigation.NavigationView;
 import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.fragment.CategoriesFragment;
 import com.mounts.lenovo.delivery3.fragment.MapFragment;
 import com.mounts.lenovo.delivery3.fragment.ReceiverOrderFragment;
 
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.Menu;
+import android.widget.FrameLayout;
+
 import static android.view.View.VISIBLE;
 
-public class Main extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+public class List extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
-    private FloatingSearchView floatingSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
-        Log.e("hey", "Main now!");
+        setContentView(R.layout.activity_list);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setVisibility(View.GONE);
-//        floatingSearchView = findViewById(R.id.floating_search_view);
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-//        floatingSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        setFragment(new MapFragment());
-    }
 
+    }
 
     @Override
     public void onBackPressed() {
@@ -66,14 +59,19 @@ public class Main extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.list, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -81,7 +79,6 @@ public class Main extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressLint("RestrictedApi")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -112,17 +109,9 @@ public class Main extends AppCompatActivity
         return true;
     }
 
-    protected void setFragment(Fragment fragment) {
-
+    private void setFragment(ReceiverOrderFragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, fragment).commit();
-
     }
-//
-//    protected void setFragmentMap(Fragment fragment) {
-//
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_map, fragment).commit();
-//
-//    }
-
-
 }
+//TODO: list activity with drawer navi in new activity
+//TODO: intent seeall id from CategoriesFragment

@@ -1,5 +1,7 @@
 package com.mounts.lenovo.delivery3.holder;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,6 @@ import com.mounts.lenovo.delivery3.R;
 public class ServiceHolder extends RecyclerView.ViewHolder {
 
     private OnItemClickListener listener;
-    private TextView texttitle, textprice, btnbook, btnsave;
-    private ImageView imgView;
 
     public ServiceHolder(@NonNull View itemView, OnItemClickListener listener) {
 
@@ -23,9 +23,16 @@ public class ServiceHolder extends RecyclerView.ViewHolder {
         this.listener = listener;
     }
 
-    public static ServiceHolder create(LayoutInflater inflater, ViewGroup parent, ServiceHolder.OnItemClickListener listener) {
+    public static ServiceHolder create(final LayoutInflater inflater, ViewGroup parent, ServiceHolder.OnItemClickListener listener) {
 
         View view = inflater.inflate(R.layout.layout_card_horizontal, parent, false);
+//        TextView see = view.findViewById(R.id.seeAll);
+//        see.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(this, NewHolder.class);
+//            }
+//        });
         return new ServiceHolder(view, listener);
     }
 
