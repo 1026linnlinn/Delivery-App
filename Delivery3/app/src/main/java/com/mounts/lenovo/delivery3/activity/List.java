@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -22,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import android.view.Menu;
 import android.widget.FrameLayout;
@@ -34,6 +36,7 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("Arrive", "List.java");
         setContentView(R.layout.activity_list);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -85,21 +88,21 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_receive) {
+        if (id == R.id.nav_receive_list) {
             toolbar.setVisibility(VISIBLE);
 //            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_send_list) {
             toolbar.setVisibility(VISIBLE);
 //            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
 
-        } else if (id == R.id.nav_map) {
+        } else if (id == R.id.nav_map_list) {
 //            toolbar.setVisibility(View.GONE);
 //            floatingSearchView.setVisibility(View.VISIBLE);
             setFragment(new MapFragment());
-        } else if (id == R.id.nav_categories) {
+        } else if (id == R.id.nav_categories_list) {
             toolbar.setVisibility(VISIBLE);
             setFragment(new CategoriesFragment());
         }
@@ -109,7 +112,7 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
         return true;
     }
 
-    private void setFragment(ReceiverOrderFragment fragment) {
+    private void setFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, fragment).commit();
     }
 }

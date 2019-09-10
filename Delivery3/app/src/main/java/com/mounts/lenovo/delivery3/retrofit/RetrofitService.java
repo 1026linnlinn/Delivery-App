@@ -53,7 +53,8 @@ public class RetrofitService {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
-        Retrofit service = new Retrofit.Builder().baseUrl(BASE_URL)
+        Retrofit service = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
