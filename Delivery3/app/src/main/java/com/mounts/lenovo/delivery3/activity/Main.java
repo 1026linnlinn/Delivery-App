@@ -30,20 +30,17 @@ public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
-    private FloatingSearchView floatingSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("hey", "Main now!");
         setContentView(R.layout.activity_main2);
 
-        Log.e("hey", "Main now!");
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setVisibility(View.GONE);
-//        floatingSearchView = findViewById(R.id.floating_search_view);
+        toolbar.setVisibility(VISIBLE);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-//        floatingSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

@@ -1,6 +1,7 @@
 package com.mounts.lenovo.recyclervieweg10thsept;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +47,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {
 
         protected TextView tvTitle;
-
         protected ImageView itemImage;
-
 
         public SingleItemRowHolder(View view) {
             super(view);
@@ -58,14 +57,10 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             this.tvTitle = (TextView) view.findViewById(R.id.textView3);
             this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
 
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
-
                 }
             });
 

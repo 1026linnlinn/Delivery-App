@@ -9,6 +9,7 @@ import com.mounts.lenovo.delivery3.R;
 public class NewClass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main);
+        setContentView(R.layout.see_all_recycler_view);
     }
+
 }

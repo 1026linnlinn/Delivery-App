@@ -19,7 +19,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
-                android:layout_width="160dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:elevation="14dp"
@@ -42,6 +42,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/itemImage"
                         android:layout_margin="4dp"
+                        android:paddingLeft="4dp"
                         android:paddingBottom="4dp">
 
                         <TextView
@@ -49,8 +50,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
+                            android:textColor="@color/black"
                             android:text="Erren's Kitchen"
-                            android:textSize="20dp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -60,7 +62,7 @@
                             android:layout_below="@+id/textView01"
                             android:maxLines="1"
                             android:text="23 Queen Street"
-                            android:textSize="16dp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/textView03"
@@ -69,7 +71,7 @@
                             android:layout_below="@+id/textView02"
                             android:maxLines="1"
                             android:text="Buantos,China"
-                            android:textSize="14dp" />
+                            android:textSize="12sp" />
                     </RelativeLayout>
 
                 </RelativeLayout>

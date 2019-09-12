@@ -1,17 +1,20 @@
 package com.mounts.lenovo.delivery3.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.activity.NewClass;
+import com.mounts.lenovo.delivery3.fragment.SeeAllFragment;
 
 import java.util.ArrayList;
 
@@ -29,6 +32,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
     public ItemRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         Log.e("right here", "ok");
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, null);
+
         ItemRowHolder mh = new ItemRowHolder(v);
         return mh;
     }
@@ -57,7 +61,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
     public class ItemRowHolder extends RecyclerView.ViewHolder {
 
-        protected TextView itemTitle;
+        protected TextView itemTitle, seeall;
 
         protected RecyclerView recycler_view_list;
 
@@ -66,10 +70,17 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
             super(view);
 
             this.itemTitle = (TextView) view.findViewById(R.id.header);
+//            this.seeall = view.findViewById(R.id.seeAll_1);//if you clicked see all btn,show in toast||Log and intent to new class.
             this.recycler_view_list = (RecyclerView) view.findViewById(R.id.recycler_view_list);
-
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), itemTitle.getText(), Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(new Intent(mContext,SeeAllFragment.class));//Login to other class what I pass...
+//TODO: intent from adapter to fragment/RecyclerViewDataAdapter to SeeAllFragment//
+                    Log.e("clicked", "SeeAll");
+                }
+            });
         }
-
     }
-
 }

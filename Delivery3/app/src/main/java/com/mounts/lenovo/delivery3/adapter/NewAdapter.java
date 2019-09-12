@@ -13,7 +13,6 @@ public class NewAdapter extends RecyclerView.Adapter<NewHolder> {
     NewHolder.OnItemClickListener listener;
 
     public NewAdapter(NewHolder.OnItemClickListener listener){
-
         this.listener = listener;
     }
 
@@ -23,11 +22,6 @@ public class NewAdapter extends RecyclerView.Adapter<NewHolder> {
 
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         return NewHolder.create(inflater,viewGroup,listener);
-//        View view=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.listdata,viewGroup,false);
-//        return new ViewHolder(view);
-//        ...
-//        MyViewHolder vh = new MyViewHolder(v);
-//        return vh;
     }
 
     @Override

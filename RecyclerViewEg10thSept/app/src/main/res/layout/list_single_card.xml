@@ -57,8 +57,6 @@
                 android:text="Buantos,China"
                 android:textSize="14dp" />
         </RelativeLayout>
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

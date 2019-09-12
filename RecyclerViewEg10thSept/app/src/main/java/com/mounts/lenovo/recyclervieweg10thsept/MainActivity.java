@@ -34,15 +34,11 @@ public class MainActivity extends AppCompatActivity {
         allSampleData = new ArrayList<SectionDataModel>();
 
         createDummyData();
-
         RecyclerView my_recycler_view = findViewById(R.id.my_recycler_view);
-
         my_recycler_view.setHasFixedSize(true);
         RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(this, allSampleData);
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         my_recycler_view.setAdapter(adapter);
-
-
     }
 
     public void createDummyData() {
@@ -53,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
             dm.setHeaderTitle("Section " + i);
 
             ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
+
             for (int j = 0; j <= 10; j++) {
                 singleItem.add(new SingleItemModel("Item " + j, "URL " + j));
             }
-
             dm.setAllItemsInSection(singleItem);
 
             allSampleData.add(dm);

@@ -1,12 +1,8 @@
 package com.mounts.lenovo.recyclervieweg10thsept;
 
 public class SingleItemModel {
-
-
     private String name;
     private String url;
-
-
     public SingleItemModel() {
     }
 
@@ -14,7 +10,6 @@ public class SingleItemModel {
         this.name = name;
         this.url = url;
     }
-
 
     public String getUrl() {
         return url;

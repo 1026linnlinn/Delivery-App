@@ -29,7 +29,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-
     <RelativeLayout
         android:id="@+id/layoutLogin"
         android:layout_width="match_parent"

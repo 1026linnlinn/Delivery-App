@@ -1,6 +1,7 @@
 package com.mounts.lenovo.delivery3.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,6 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
         protected ImageView itemImage;
 
-
         public SingleItemRowHolder(View view) {
             super(view);
 
@@ -59,17 +59,15 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             this.tvTitle = (TextView) view.findViewById(R.id.textView02);
             this.tvTitle = (TextView) view.findViewById(R.id.textView03);
             this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
+//            this.tvTitle = view.findViewById(R.id.seeAll_1);
 
-//
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//
-//                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
-//
-//                }
-//            });
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
+                    Log.e("clicked", "photo or text");
+                }
+            });
 
 
         }

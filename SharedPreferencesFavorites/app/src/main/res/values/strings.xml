@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SharedPreferencesFavorites</string>
+    <string name="app_name1">SharedPreferencesFavorites</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="favorites">Favorites</string>
+</resources>

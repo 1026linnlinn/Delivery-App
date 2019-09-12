@@ -45,7 +45,6 @@ public class SendOrderFragment extends Fragment implements View.OnClickListener,
         txt2.setOnClickListener(this);
         txt3.setOnClickListener(this);
         btnTrack.setOnClickListener(this);
-//
         adapter = new NewAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
