@@ -9,11 +9,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mounts.lenovo.delivery3.R;
-import com.mounts.lenovo.delivery3.activity.NewClass;
+import com.mounts.lenovo.delivery3.activity.List;
+import com.mounts.lenovo.delivery3.activity.Main;
 import com.mounts.lenovo.delivery3.fragment.SeeAllFragment;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDataAdapter.ItemRowHolder> {
 
     private ArrayList<SectionDataModel> dataList;
-    private Context mContext;
+    private Context mContext, context;
 
     public RecyclerViewDataAdapter(Context context, ArrayList<SectionDataModel> dataList) {
         this.dataList = dataList;
@@ -59,6 +61,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
         return (null != dataList ? dataList.size() : 0);
     }
 
+
     public class ItemRowHolder extends RecyclerView.ViewHolder {
 
         protected TextView itemTitle, seeall;
@@ -76,8 +79,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), itemTitle.getText(), Toast.LENGTH_SHORT).show();
-                    mContext.startActivity(new Intent(mContext,SeeAllFragment.class));//Login to other class what I pass...
-//TODO: intent from adapter to fragment/RecyclerViewDataAdapter to SeeAllFragment//
+                    mContext.startActivity(new Intent(mContext, List.class));//Login to other class what I pass...
                     Log.e("clicked", "SeeAll");
                 }
             });

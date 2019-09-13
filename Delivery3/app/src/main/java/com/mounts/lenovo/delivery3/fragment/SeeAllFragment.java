@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.adapter.RecyclerViewDataAdapter;
 import com.mounts.lenovo.delivery3.adapter.SeeAllAdapter;
 import com.mounts.lenovo.delivery3.holder.NewHolder;
 import com.mounts.lenovo.delivery3.holder.SeeAllHolder;
@@ -23,7 +24,7 @@ import com.mounts.lenovo.delivery3.holder.SeeAllHolder.OnItemClickListener;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SeeAllFragment extends Fragment implements View.OnClickListener, SeeAllHolder.OnItemClickListener {
+public class SeeAllFragment extends Fragment implements View.OnClickListener, SeeAllHolder.OnItemClickListener{
     private RecyclerView recyclerView;
     SeeAllAdapter adapter;
 
@@ -36,9 +37,11 @@ public class SeeAllFragment extends Fragment implements View.OnClickListener, Se
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.see_all_recycler_view, container, false);
         recyclerView = view.findViewById(R.id.seeall_recyclerview);
+
         adapter = new SeeAllAdapter(this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(adapter);
         return view;
     }
 
@@ -46,4 +49,5 @@ public class SeeAllFragment extends Fragment implements View.OnClickListener, Se
     public void onClick(View v) {
 
     }
+
 }

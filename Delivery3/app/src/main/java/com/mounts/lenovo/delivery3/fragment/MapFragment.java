@@ -54,7 +54,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         final View view = inflater.inflate(R.layout.acitivity_map_fragment, container, false);
         btnNextOrder = view.findViewById(R.id.btnNextOrder);
         floatingSearchView = view.findViewById(R.id.floating_search_view);
-        DrawerLayout drawerLayout = view.findViewById(R.id.drawer_layout_map);
+        DrawerLayout drawerLayout = view.findViewById(R.id.drawer_layout);
 //        NavigationView navigationView = view.findViewById(R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
         floatingSearchView.attachNavigationDrawerToMenuButton(drawerLayout);

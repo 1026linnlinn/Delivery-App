@@ -71,6 +71,8 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+//                    mContext.startActivity(new Intent(mContext, New.class));
+                    mContext.startActivity(new Intent(mContext, Main2Activity.class));//Login to other class what I pass...
                     Toast.makeText(v.getContext(), itemTitle.getText(), Toast.LENGTH_SHORT).show();
                     Log.e("clicked", "Section");
                 }

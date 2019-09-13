@@ -1,5 +1,6 @@
 package com.mounts.lenovo.delivery3.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,31 +16,45 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.adapter.SeeAllAdapter;
 import com.mounts.lenovo.delivery3.fragment.CategoriesFragment;
 import com.mounts.lenovo.delivery3.fragment.MapFragment;
 import com.mounts.lenovo.delivery3.fragment.ReceiverOrderFragment;
+import com.mounts.lenovo.delivery3.holder.SeeAllHolder;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.widget.FrameLayout;
 
 import static android.view.View.VISIBLE;
 
-public class List extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class List extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, SeeAllHolder.OnItemClickListener {
     private Toolbar toolbar;
+    private RecyclerView recyclerView;
+    SeeAllAdapter adapter;
 
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.e("Arrive", "List.java");
         setContentView(R.layout.activity_list);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbarList);
         setSupportActionBar(toolbar);
+//        TODO:recyclerview pr tae seeall sar lay twe co htae yan...
+//        recyclerView = findViewById(R.id.seeall_recyclerview);
+//        adapter = new SeeAllAdapter(this);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//        recyclerView.setAdapter(adapter);
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -47,7 +62,6 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
@@ -63,15 +77,12 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.list, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -82,27 +93,20 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_receive_list) {
+        if (id == R.id.nav_receive) {
             toolbar.setVisibility(VISIBLE);
-//            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
-
-        } else if (id == R.id.nav_send_list) {
+        } else if (id == R.id.nav_send) {
             toolbar.setVisibility(VISIBLE);
-//            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
-
-        } else if (id == R.id.nav_map_list) {
-//            toolbar.setVisibility(View.GONE);
-//            floatingSearchView.setVisibility(View.VISIBLE);
+        } else if (id == R.id.nav_map) {
+            toolbar.setVisibility(View.GONE);
             setFragment(new MapFragment());
-        } else if (id == R.id.nav_categories_list) {
+        } else if (id == R.id.nav_categories) {
             toolbar.setVisibility(VISIBLE);
             setFragment(new CategoriesFragment());
         }
@@ -115,6 +119,9 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
     private void setFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, fragment).commit();
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }
-//TODO: list activity with drawer navi in new activity
-//TODO: intent seeall id from CategoriesFragment

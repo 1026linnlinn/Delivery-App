@@ -36,10 +36,9 @@ public class Main extends AppCompatActivity
         super.onCreate(savedInstanceState);
         Log.e("hey", "Main now!");
         setContentView(R.layout.activity_main2);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setVisibility(VISIBLE);
+        toolbar.setVisibility(View.GONE);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -82,24 +81,22 @@ public class Main extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.nav_receive) {
             toolbar.setVisibility(VISIBLE);
-//            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
-
-        } else if (id == R.id.nav_send) {
+        }
+        else if (id == R.id.nav_send) {
             toolbar.setVisibility(VISIBLE);
-//            floatingSearchView.setVisibility(View.GONE);
             setFragment(new ReceiverOrderFragment());
-
-        } else if (id == R.id.nav_map) {
-//            toolbar.setVisibility(View.GONE);
-//            floatingSearchView.setVisibility(View.VISIBLE);
+        }
+        else if (id == R.id.nav_map) {
+            toolbar.setVisibility(View.GONE);
             setFragment(new MapFragment());
-        } else if (id == R.id.nav_categories) {
+        }
+        else if (id == R.id.nav_categories) {
             toolbar.setVisibility(VISIBLE);
             setFragment(new CategoriesFragment());
         }
@@ -114,12 +111,5 @@ public class Main extends AppCompatActivity
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, fragment).commit();
 
     }
-//
-//    protected void setFragmentMap(Fragment fragment) {
-//
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_map, fragment).commit();
-//
-//    }
-
 
 }

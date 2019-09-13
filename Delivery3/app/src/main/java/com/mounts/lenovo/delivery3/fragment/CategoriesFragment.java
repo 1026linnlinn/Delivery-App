@@ -24,9 +24,6 @@ import com.mounts.lenovo.delivery3.holder.ServiceHolder;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CategoriesFragment extends Fragment implements View.OnClickListener, ServiceHolder.OnItemClickListener {
     ArrayList<SectionDataModel> allSampleData;
     ImageAdapter imageAdapter;

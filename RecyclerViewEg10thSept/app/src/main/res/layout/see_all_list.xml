@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/tvblack"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/grey" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvblack"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@color/gray" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvblack">
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
@@ -24,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/circleView"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
@@ -66,8 +67,8 @@
                     android:layout_marginBottom="18dp"
                     android:background="@drawable/buttonforbookmark"
                     android:text="BookMark"
-                    android:textColor="@color/bayleaf"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:textColor="@color/bayleaf" />
 
             </RelativeLayout>
 

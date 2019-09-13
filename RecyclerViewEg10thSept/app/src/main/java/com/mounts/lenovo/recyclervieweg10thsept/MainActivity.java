@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<SectionDataModel> allSampleData;
 
-
     @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
