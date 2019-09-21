@@ -58,8 +58,6 @@
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
-
     </RelativeLayout>
-
 
 </RelativeLayout>

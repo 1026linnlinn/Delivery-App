@@ -2,6 +2,7 @@ package com.mounts.lenovo.delivery3.fragment;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -19,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toolbar;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,15 +40,18 @@ import static android.view.View.VISIBLE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MapFragment extends Fragment implements OnMapReadyCallback {
+public class MapFragment extends Fragment implements OnMapReadyCallback{
 
     private GoogleMap mMap;
     private Button btnNextOrder;
     private FloatingSearchView floatingSearchView;
+    private Toolbar toolbar;
+    private FragmentActivity mContext;
 
     public MapFragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,8 +61,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         btnNextOrder = view.findViewById(R.id.btnNextOrder);
         floatingSearchView = view.findViewById(R.id.floating_search_view);
         DrawerLayout drawerLayout = view.findViewById(R.id.drawer_layout);
-//        NavigationView navigationView = view.findViewById(R.id.nav_view);
+        NavigationView navigationView = view.findViewById(R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
+
         floatingSearchView.attachNavigationDrawerToMenuButton(drawerLayout);
 
         btnNextOrder.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +94,43 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
+
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.nav_receive) {
+//            toolbar.setVisibility(VISIBLE);
+//            setFragment(new ReceiverOrderFragment());
+//        } else if (id == R.id.nav_send) {
+//            toolbar.setVisibility(VISIBLE);
+//            setFragment(new ReceiverOrderFragment());
+//        } else if (id == R.id.nav_map) {
+//            toolbar.setVisibility(View.GONE);
+//            setFragment(new MapFragment());
+//        } else if (id == R.id.nav_categories) {
+//            toolbar.setVisibility(VISIBLE);
+////            setFragment(new CategoriesFragment());
+//            setFragment(new CategoriesFragment());
+//        }
+//
+//        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
+//
+//
+//    @Override
+//    public void onAttach(Activity activity) {
+//        mContext=(FragmentActivity) activity;
+//        super.onAttach(activity);
+//    }
+//
+//    private void setFragment(Fragment fragment) {
+////        FragmentManager fragmentManager=mContext.getSupportFragmentManager();
+////        getSupportFragmentManager().beginTransaction().replace(R.id.map, fragment).commit();
+//    }
+    
 //
 //    @Override
 //    public boolean onNavigationItemSelected(@NonNull MenuItem menu) {

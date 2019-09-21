@@ -45,7 +45,8 @@ public class FavoriteListFragment extends Fragment {
         if (favorites == null) {
             showAlert(getResources().getString(R.string.no_favorites_items),
                     getResources().getString(R.string.no_favorites_msg));
-        } else {
+        } else
+            {
             if (favorites.size() == 0) {
                 showAlert(
                         getResources().getString(R.string.no_favorites_items),

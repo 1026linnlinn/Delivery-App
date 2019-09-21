@@ -22,7 +22,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-
         /*
          * This is called when orientation is changed.
          */

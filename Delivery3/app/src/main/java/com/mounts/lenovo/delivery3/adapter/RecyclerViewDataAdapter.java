@@ -2,6 +2,7 @@ package com.mounts.lenovo.delivery3.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.activity.Details;
 import com.mounts.lenovo.delivery3.activity.List;
+import com.mounts.lenovo.delivery3.activity.Login;
 import com.mounts.lenovo.delivery3.activity.Main;
 import com.mounts.lenovo.delivery3.fragment.SeeAllFragment;
 
@@ -79,7 +82,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), itemTitle.getText(), Toast.LENGTH_SHORT).show();
-                    mContext.startActivity(new Intent(mContext, List.class));//Login to other class what I pass...
+                    mContext.startActivity(new Intent(mContext, Details.class));//Login to other class what I pass...
                     Log.e("clicked", "SeeAll");
                 }
             });

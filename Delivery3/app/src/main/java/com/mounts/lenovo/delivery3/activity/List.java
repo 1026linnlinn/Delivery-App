@@ -49,11 +49,11 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
         toolbar = findViewById(R.id.toolbarList);
         setSupportActionBar(toolbar);
 //        TODO:recyclerview pr tae seeall sar lay twe co htae yan...
-//        recyclerView = findViewById(R.id.seeall_recyclerview);
-//        adapter = new SeeAllAdapter(this);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-//        recyclerView.setAdapter(adapter);
+        recyclerView = findViewById(R.id.seeall_recyclerview);
+        adapter = new SeeAllAdapter(this);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(adapter);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -71,6 +71,7 @@ public class List extends AppCompatActivity implements NavigationView.OnNavigati
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
     }
 

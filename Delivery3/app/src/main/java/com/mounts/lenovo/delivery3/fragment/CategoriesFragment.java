@@ -2,6 +2,7 @@ package com.mounts.lenovo.delivery3.fragment;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.activity.Details;
 import com.mounts.lenovo.delivery3.adapter.ImageAdapter;
 import com.mounts.lenovo.delivery3.adapter.RecyclerViewDataAdapter;
 import com.mounts.lenovo.delivery3.adapter.SectionDataModel;
@@ -28,6 +30,7 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
     ArrayList<SectionDataModel> allSampleData;
     ImageAdapter imageAdapter;
     private ServiceAdapter serviceAdapter;
+    private ViewPager viewPager;
     private RecyclerView recyclerView;
 
     public CategoriesFragment() {
@@ -41,9 +44,32 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
         Log.e("Categories", "Fragment");
         View view = inflater.inflate(R.layout.categories, container, false);
 
-        ViewPager viewPager = view.findViewById(R.id.viewPager);
+        viewPager = view.findViewById(R.id.viewPager);
         ImageAdapter adapterView = new ImageAdapter(getContext());
+
+//      TODO: Image ko click yin Details.class co yout chin tr...
+
         viewPager.setAdapter(adapterView);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.e("viewPager", "success");
+                if (position == viewPager.getAdapter().getCount()) {
+                    Intent intent = new Intent(getActivity(), Details.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         allSampleData = new ArrayList<SectionDataModel>();
         createData();
@@ -74,4 +100,25 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
 
     }
+
+//    @Override
+//    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//    }
+//
+//    @Override
+//    public void onPageSelected(int position) {
+//
+//        Log.e("viewPager", "success");
+//        if (position == viewPager.getAdapter().getCount()) {
+//            Intent intent = new Intent(getContext(), Details.class);
+//            startActivity(intent);
+//        }
+//
+//    }
+//
+//    @Override
+//    public void onPageScrollStateChanged(int state) {
+//
+//    }
 }
