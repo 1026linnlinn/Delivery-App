@@ -22,14 +22,15 @@ public class ImageAdapter extends PagerAdapter {
         return view == ((ImageView) object);
     }
 
-    private int[] sliderImageId = new int[]{
-            R.drawable.img1, R.drawable.images1, R.drawable.img4, R.drawable.donut, R.drawable.img5};
+    private int[] sliderImageId = new int[]{R.drawable.img1, R.drawable.images1, R.drawable.img4, R.drawable.donut, R.drawable.img5};
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
         imageView.setImageResource(sliderImageId[position]);
+
         ((ViewPager) container).addView(imageView, 0);
         return imageView;
     }
