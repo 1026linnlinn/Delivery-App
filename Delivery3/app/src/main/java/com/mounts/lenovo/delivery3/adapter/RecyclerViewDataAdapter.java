@@ -17,9 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.activity.Details;
 import com.mounts.lenovo.delivery3.activity.List;
-import com.mounts.lenovo.delivery3.activity.Login;
-import com.mounts.lenovo.delivery3.activity.Main;
-import com.mounts.lenovo.delivery3.fragment.SeeAllFragment;
 
 import java.util.ArrayList;
 
@@ -56,14 +53,12 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
         itemRowHolder.recycler_view_list.setHasFixedSize(true);
         itemRowHolder.recycler_view_list.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         itemRowHolder.recycler_view_list.setAdapter(itemListDataAdapter);
-
     }
 
     @Override
     public int getItemCount() {
         return (null != dataList ? dataList.size() : 0);
     }
-
 
     public class ItemRowHolder extends RecyclerView.ViewHolder {
 
@@ -76,13 +71,13 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
             super(view);
 
             this.itemTitle = (TextView) view.findViewById(R.id.header);
-//            this.seeall = view.findViewById(R.id.seeAll_1);//if you clicked see all btn,show in toast||Log and intent to new class.
+            this.seeall = view.findViewById(R.id.seeAll_1);//if you clicked see all btn,show in toast||Log and intent to new class.
             this.recycler_view_list = (RecyclerView) view.findViewById(R.id.recycler_view_list);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), itemTitle.getText(), Toast.LENGTH_SHORT).show();
-                    mContext.startActivity(new Intent(mContext, Details.class));//Login to other class what I pass...
+                    mContext.startActivity(new Intent(mContext, List.class));
                     Log.e("clicked", "SeeAll");
                 }
             });

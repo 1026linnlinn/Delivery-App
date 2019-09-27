@@ -30,8 +30,9 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
     ArrayList<SectionDataModel> allSampleData;
     ImageAdapter imageAdapter;
     private ServiceAdapter serviceAdapter;
-    private ViewPager viewPager;
+    ViewPager viewPager;
     private RecyclerView recyclerView;
+//    int images[] = {R.drawable.images1, R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,R.drawable.dishes};
 
     public CategoriesFragment() {
         // Required empty public constructor
@@ -45,35 +46,18 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.categories, container, false);
 
         viewPager = view.findViewById(R.id.viewPager);
-        ImageAdapter adapterView = new ImageAdapter(getContext());
+//        adapterView = new ImageAdapter(getContext(), images);
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        imageAdapter = new ImageAdapter(getActivity());
+        viewPager.setAdapter(imageAdapter);
 
-//      TODO: Image ko click yin Details.class co yout chin tr...
-
-        viewPager.setAdapter(adapterView);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                Log.e("viewPager", "success");
-                if (position == viewPager.getAdapter().getCount()) {
-                    Intent intent = new Intent(getActivity(), Details.class);
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        recyclerView = view.findViewById(R.id.my_recycler_view);
+        serviceAdapter = new ServiceAdapter(this);
+        recyclerView.setAdapter(serviceAdapter);
 
         allSampleData = new ArrayList<SectionDataModel>();
         createData();
-        recyclerView = view.findViewById(R.id.my_recycler_view);
+
 
         recyclerView.setHasFixedSize(true);
         RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(getContext(), allSampleData);
@@ -101,24 +85,4 @@ public class CategoriesFragment extends Fragment implements View.OnClickListener
 
     }
 
-//    @Override
-//    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//    }
-//
-//    @Override
-//    public void onPageSelected(int position) {
-//
-//        Log.e("viewPager", "success");
-//        if (position == viewPager.getAdapter().getCount()) {
-//            Intent intent = new Intent(getContext(), Details.class);
-//            startActivity(intent);
-//        }
-//
-//    }
-//
-//    @Override
-//    public void onPageScrollStateChanged(int state) {
-//
-//    }
 }

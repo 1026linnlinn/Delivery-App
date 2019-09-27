@@ -105,7 +105,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         } else if (v == signUp) {
             userRegister();
-
         }
     }
 
@@ -136,9 +135,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //                        editor.apply();
 //                        editor.commit();
 
-                    intent = new Intent(getApplicationContext(), Main.class);
-//                    intent.putExtra("Token", response.body().sessionId);
-                    startActivity(intent);
+////                    intent = new Intent(getApplicationContext(), Main.class);
+//////                    intent.putExtra("Token", response.body().sessionId);
+////                    startActivity(intent);
 
 //                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(Login.this, "Login Success", Toast.LENGTH_LONG).show();

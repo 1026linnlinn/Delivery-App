@@ -1,6 +1,8 @@
 package com.mounts.lenovo.delivery3.api;
 
 import com.mounts.lenovo.delivery3.response.AddOrderInfo;
+import com.mounts.lenovo.delivery3.response.DetailResponse;
+import com.mounts.lenovo.delivery3.response.GetServiceList;
 import com.mounts.lenovo.delivery3.response.GetTown;
 import com.mounts.lenovo.delivery3.response.LoginResponse;
 import com.mounts.lenovo.delivery3.response.RegisterResponse;
@@ -61,4 +63,10 @@ public interface ApiInterface {
     @GET("/api/user/offices/get_towns")
     Call<GetTown> getOfficeTown();
 
+    @FormUrlEncoded
+    @POST("/api/user/detail")
+    Call<DetailResponse> detail(@Field("sessionId") String sessionId);
+
+    @GET("/api/user/adds_on_service/list")
+    Call<GetServiceList> getServiceList();
 }

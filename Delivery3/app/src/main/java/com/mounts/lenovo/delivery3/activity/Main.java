@@ -26,8 +26,7 @@ import com.mounts.lenovo.delivery3.fragment.ReceiverOrderFragment;
 
 import static android.view.View.VISIBLE;
 
-public class Main extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class Main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
 

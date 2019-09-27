@@ -15,12 +15,19 @@ import com.google.android.material.navigation.NavigationView;
 import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.adapter.DetailsAdapter;
 import com.mounts.lenovo.delivery3.adapter.SeeAllAdapter;
+import com.mounts.lenovo.delivery3.api.ApiInterface;
 import com.mounts.lenovo.delivery3.holder.DetailsHolder;
 import com.mounts.lenovo.delivery3.holder.SeeAllHolder;
+import com.mounts.lenovo.delivery3.retrofit.RetrofitService;
+
+import retrofit2.Retrofit;
 
 public class Details extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, DetailsHolder.OnItemClickListener {
     private RecyclerView recyclerView;
     DetailsAdapter detailsAdapter;
+    RetrofitService retrofitService;
+    private String token;
+    private String sessionId;
 
     @SuppressLint("WrongConstant")
     @Override
@@ -33,6 +40,12 @@ public class Details extends AppCompatActivity implements NavigationView.OnNavig
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(detailsAdapter);
+//        detail(sessionid);
+    }
+
+    private void detail(String sessionId) {
+        ApiInterface apiInterface=retrofitService.getService().create(ApiInterface.class);
+
     }
 
     @Override
