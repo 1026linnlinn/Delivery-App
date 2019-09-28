@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="250dp">
@@ -13,6 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/dishes" />
+
+        <ImageView
+            android:id="@+id/backarrow_service_detail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/back_arrow" />
 
         <TextView
             android:id="@+id/textView_ServiceDetail"
@@ -39,8 +47,8 @@
 
             <ImageView
                 android:id="@+id/imageViewofReview"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/star" />
 
@@ -58,7 +66,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp">
+        android:layout_height="140dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -76,7 +84,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123 Queen Street,Sydney"
-                android:textSize="20sp" />
+                android:textSize="18sp"
+                />
 
             <TextView
                 android:id="@+id/tvaddress1"
@@ -84,14 +93,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvaddress"
                 android:text="Australian, Cafe"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvaddress1"
                 android:text="11:30AM to 11:00PM"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </RelativeLayout>
     </RelativeLayout>
@@ -118,8 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:gravity="right"
                 android:layout_toRightOf="@+id/textView_service_detail_1"
+                android:gravity="right"
                 android:text="(+61) 123 456 789"
                 android:textColor="@color/bayleaf"
                 android:textSize="18sp" />
@@ -145,8 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-               android:gravity="right"
                 android:layout_toRightOf="@+id/textView_service_detail_2"
+                android:gravity="right"
                 android:text="Australian, Cafe"
                 android:textColor="@color/bayleaf"
                 android:textSize="18sp" />
@@ -166,12 +175,13 @@
                 android:layout_centerVertical="true"
                 android:text="Average Cost"
                 android:textSize="18sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:gravity="right"
                 android:layout_toRightOf="@+id/textView_service_detail_3"
+                android:gravity="right"
                 android:text="$20-$50"
                 android:textColor="@color/bayleaf"
                 android:textSize="18sp" />
