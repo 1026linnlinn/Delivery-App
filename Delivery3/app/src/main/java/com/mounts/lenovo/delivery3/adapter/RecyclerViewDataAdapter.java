@@ -1,86 +1,91 @@
 package com.mounts.lenovo.delivery3.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mounts.lenovo.delivery3.R;
-import com.mounts.lenovo.delivery3.activity.Details;
 import com.mounts.lenovo.delivery3.activity.List;
+import com.mounts.lenovo.delivery3.api.OnItemClickListener;
+import com.mounts.lenovo.delivery3.holder.ItemRowHolder;
+import com.mounts.lenovo.delivery3.response.GetServiceList;
 
 import java.util.ArrayList;
 
-public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDataAdapter.ItemRowHolder> {
+public class RecyclerViewDataAdapter extends RecyclerView.Adapter<ItemRowHolder> {
 
-    private ArrayList<SectionDataModel> dataList;
-    private Context mContext, context;
+    private List<GetServiceList> getServiceList1 = new List<>();
+    private Context mContext;
+    private OnItemClickListener listener;
 
-    public RecyclerViewDataAdapter(Context context, ArrayList<SectionDataModel> dataList) {
-        this.dataList = dataList;
-        this.mContext = context;
+    public RecyclerViewDataAdapter(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @Override
     public ItemRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         Log.e("right here", "ok");
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, null);
-
-        ItemRowHolder mh = new ItemRowHolder(v);
-        return mh;
+        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        return ItemRowHolder.create(inflater, viewGroup, listener);
     }
 
-    @Override
-    public void onBindViewHolder(ItemRowHolder itemRowHolder, int i) {
+    public void onBindViewHolder(@NonNull ItemRowHolder holder, int position) {
+        holder.bindData(getServiceList1.get(position));
 
-        final String sectionName = dataList.get(i).getHeaderTitle();
-
-        ArrayList singleSectionItems = dataList.get(i).getAllItemsInSection();
-
-        itemRowHolder.itemTitle.setText(sectionName);
-
-        SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems);
-
-        itemRowHolder.recycler_view_list.setHasFixedSize(true);
-        itemRowHolder.recycler_view_list.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-        itemRowHolder.recycler_view_list.setAdapter(itemListDataAdapter);
     }
 
     @Override
     public int getItemCount() {
-        return (null != dataList ? dataList.size() : 0);
+        return getServiceList1.size();
+//        return (null != dataList ? dataList.size() : 0);
     }
 
-    public class ItemRowHolder extends RecyclerView.ViewHolder {
-
-        protected TextView itemTitle, seeall;
-
-        protected RecyclerView recycler_view_list;
-
-
-        public ItemRowHolder(View view) {
-            super(view);
-
-            this.itemTitle = (TextView) view.findViewById(R.id.header);
-            this.seeall = view.findViewById(R.id.seeAll_1);//if you clicked see all btn,show in toast||Log and intent to new class.
-            this.recycler_view_list = (RecyclerView) view.findViewById(R.id.recycler_view_list);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), itemTitle.getText(), Toast.LENGTH_SHORT).show();
-                    mContext.startActivity(new Intent(mContext, List.class));
-                    Log.e("clicked", "SeeAll");
-                }
-            });
-        }
+    public void addData(List<GetServiceList> getServiceListList) {
+        if (this.getServiceList1.size() == 0) {
+            this.getServiceList1 = getServiceListList;
+        } else getServiceList1.addAll(getServiceListList);
+        notifyDataSetChanged();
     }
+
 }
+//TODO: to check adapter and holder ...linn
+//
+//public class MedicineAdapter extends RecyclerView.Adapter<MedicineHolder> {
+//
+//    private List<MedicineData> medicineData = new ArrayList<>();
+//    private OnItemClickListener listener;
+//
+//    public MedicineAdapter(OnItemClickListener listener){
+//        this.listener = listener;
+//    }
+//
+//    @NonNull
+//    @Override
+//    public MedicineHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//
+//        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+//        return MedicineHolder.create(inflater, parent, listener);
+//    }
+//
+//    @Override
+//    public void onBindViewHolder(@NonNull MedicineHolder holder, int position) {
+//        holder.bindData(medicineData.get(position));
+//
+//    }
+//
+//    @Override
+//    public int getItemCount() {
+//        return medicineData.size();
+//    }
+//
+//    public void addData(List<MedicineData> medicineData) {
+//        if (this.medicineData.size() == 0) {
+//            this.medicineData = medicineData;
+//        } else medicineData.addAll(medicineData);
+//        notifyDataSetChanged();
+//    }
+//
+//}

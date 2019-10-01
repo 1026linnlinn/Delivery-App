@@ -35,7 +35,7 @@ import android.widget.FrameLayout;
 
 import static android.view.View.VISIBLE;
 
-public class List extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, SeeAllHolder.OnItemClickListener {
+public class List<G> extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, SeeAllHolder.OnItemClickListener {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     SeeAllAdapter adapter;

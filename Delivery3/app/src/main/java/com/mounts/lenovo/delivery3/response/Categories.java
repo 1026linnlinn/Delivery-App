@@ -2,10 +2,10 @@ package com.mounts.lenovo.delivery3.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.ref.SoftReference;
 import java.util.List;
 
-public class GetServiceList{
-
+public class Categories {
     @SerializedName("id")
     public int cateId;
 
@@ -13,5 +13,7 @@ public class GetServiceList{
     public String cateName;
 
     @SerializedName("adds_on_services")
-    public List<AddsOnServices> addsOnServices;
+    public List<String> adds_on_services;
+
+    public String logo;
 }

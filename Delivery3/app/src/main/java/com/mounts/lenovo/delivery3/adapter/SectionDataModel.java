@@ -4,10 +4,8 @@ import java.util.ArrayList;
 
 public class SectionDataModel {
 
-
     private String headerTitle;
     private ArrayList<SingleItemModel> allItemsInSection;
-
 
     public SectionDataModel() {
 
@@ -17,7 +15,6 @@ public class SectionDataModel {
         this.headerTitle = headerTitle;
         this.allItemsInSection = allItemsInSection;
     }
-
 
     public String getHeaderTitle() {
         return headerTitle;

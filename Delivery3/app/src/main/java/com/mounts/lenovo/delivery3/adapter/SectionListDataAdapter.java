@@ -9,69 +9,110 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mounts.lenovo.delivery3.R;
+import com.mounts.lenovo.delivery3.api.OnItemClickListener;
+import com.mounts.lenovo.delivery3.holder.ItemRowHolder;
+import com.mounts.lenovo.delivery3.holder.SectionListDataHolder;
+import com.mounts.lenovo.delivery3.response.AddsOnServices;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
+public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataHolder> {
 
+    private List<AddsOnServices> addsOnServices = new ArrayList<>();
+    private OnItemClickListener listener;
     private ArrayList<SingleItemModel> itemsList;
     private Context mContext;
 
-    public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemsList) {
-        this.itemsList = itemsList;
-        this.mContext = context;
+    public SectionListDataAdapter(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+//    public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemsList) {
+//        this.itemsList = itemsList;
+//        this.mContext = context;
+//    }
+
+    public SectionListDataAdapter(ItemRowHolder itemRowHolder) {
     }
 
     @Override
-    public SingleItemRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_single_card, null);
-        SingleItemRowHolder mh = new SingleItemRowHolder(v);
-        return mh;
+    public SectionListDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        return SectionListDataHolder.create(inflater, parent, listener);
     }
 
     @Override
-    public void onBindViewHolder(SingleItemRowHolder holder, int i) {
-
-        SingleItemModel singleItem = itemsList.get(i);
-
-        holder.tvTitle.setText(singleItem.getName());
-
+    public void onBindViewHolder(@NonNull SectionListDataHolder holder, int position) {
+        holder.bindData(addsOnServices.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return (null != itemsList ? itemsList.size() : 0);
+        return addsOnServices.size();
+//        return (null != itemsList ? itemsList.size() : 0);
     }
 
-    public class SingleItemRowHolder extends RecyclerView.ViewHolder {
-
-        protected TextView tvTitle;
-
-        protected ImageView itemImage;
-
-        public SingleItemRowHolder(View view) {
-            super(view);
-
-            this.tvTitle = (TextView) view.findViewById(R.id.textView01);
-            this.tvTitle = (TextView) view.findViewById(R.id.textView02);
-            this.tvTitle = (TextView) view.findViewById(R.id.textView03);
-            this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
-//            this.tvTitle = view.findViewById(R.id.seeAll_1);
-
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
-                    Log.e("clicked", "photo or text");
-                }
-            });
-
-
-        }
-
+    public void addData(List<AddsOnServices> addsOnServices) {
+        this.addsOnServices = addsOnServices;
     }
-
 }
+//    public class SingleItemRowHolder extends RecyclerView.ViewHolder {
+//
+//        protected TextView tvTitle;
+//
+//        protected ImageView itemImage;
+//
+//        public SingleItemRowHolder(LayoutInflater view) {
+//            super(view);
+//            this.tvTitle = (TextView) view.findViewById(R.id.textView01);
+//            this.tvTitle = (TextView) view.findViewById(R.id.textView02);
+//            this.tvTitle = (TextView) view.findViewById(R.id.textView03);
+//            this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
+////            this.tvTitle = view.findViewById(R.id.seeAll_1);
+//
+//            view.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
+//                    Log.e("clicked", "photo or text");
+//                }
+//            });
+//        }
+//    }
+
+
+//public class MedicineItemAdapter extends RecyclerView.Adapter<MedicineItemHolder> {
+//
+//    private List<Medicine> medicines = new ArrayList<>();
+//    private OnItemClickListener listener;
+//
+//    public MedicineItemAdapter(OnItemClickListener listener){
+//        this.listener = listener;
+//    }
+//    @NonNull
+//    @Override
+//    public MedicineItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+//        return MedicineItemHolder.create(inflater , parent ,listener);
+//    }
+//
+//    @Override
+//    public void onBindViewHolder(@NonNull MedicineItemHolder holder, int position) {
+//
+//        holder.bindData(medicines.get(position));
+//    }
+//
+//    @Override
+//    public int getItemCount() {
+//        return medicines.size();
+//    }
+//
+//    public void addData(List<Medicine> medicines){
+//        this.medicines = medicines;
+//    }
+//}

@@ -26,4 +26,6 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_list">List</string>
     <string name="hello_world">Hello_world</string>
+    <string name="dialog_message">Welcome to Alert Dialog</string>
+    <string name="dialog_title">Alert Dialog Hello</string>
 </resources>

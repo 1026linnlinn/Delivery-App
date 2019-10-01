@@ -67,6 +67,6 @@ public interface ApiInterface {
     @POST("/api/user/detail")
     Call<DetailResponse> detail(@Field("sessionId") String sessionId);
 
-    @GET("/api/user/adds_on_service/list")
+    @GET("/api/user/adds_on_service/list?")
     Call<GetServiceList> getServiceList();
 }
