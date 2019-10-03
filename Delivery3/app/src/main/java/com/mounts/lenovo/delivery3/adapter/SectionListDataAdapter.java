@@ -1,22 +1,17 @@
 package com.mounts.lenovo.delivery3.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.api.OnItemClickListener;
-import com.mounts.lenovo.delivery3.holder.ItemRowHolder;
+import com.mounts.lenovo.delivery3.holder.RecyclerViewDataHolder;
 import com.mounts.lenovo.delivery3.holder.SectionListDataHolder;
 import com.mounts.lenovo.delivery3.response.AddsOnServices;
+import com.mounts.lenovo.delivery3.response.ServiceProducts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,20 +20,14 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     private List<AddsOnServices> addsOnServices = new ArrayList<>();
     private OnItemClickListener listener;
-    private ArrayList<SingleItemModel> itemsList;
     private Context mContext;
 
     public SectionListDataAdapter(OnItemClickListener listener) {
         this.listener = listener;
     }
 
-//    public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemsList) {
-//        this.itemsList = itemsList;
-//        this.mContext = context;
+//    public SectionListDataAdapter(RecyclerViewDataHolder recyclerViewDataHolder) {
 //    }
-
-    public SectionListDataAdapter(ItemRowHolder itemRowHolder) {
-    }
 
     @Override
     public SectionListDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -60,6 +49,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     public void addData(List<AddsOnServices> addsOnServices) {
         this.addsOnServices = addsOnServices;
     }
+
 }
 //    public class SingleItemRowHolder extends RecyclerView.ViewHolder {
 //
@@ -88,7 +78,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 //public class MedicineItemAdapter extends RecyclerView.Adapter<MedicineItemHolder> {
 //
-//    private List<Medicine> medicines = new ArrayList<>();
+//    private Lists<Medicine> medicines = new ArrayList<>();
 //    private OnItemClickListener listener;
 //
 //    public MedicineItemAdapter(OnItemClickListener listener){
@@ -112,7 +102,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 //        return medicines.size();
 //    }
 //
-//    public void addData(List<Medicine> medicines){
+//    public void addData(Lists<Medicine> medicines){
 //        this.medicines = medicines;
 //    }
 //}

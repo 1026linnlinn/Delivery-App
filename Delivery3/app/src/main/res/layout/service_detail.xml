@@ -17,10 +17,10 @@
 
         <ImageView
             android:id="@+id/backarrow_service_detail"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_margin="8dp"
-            android:src="@drawable/back_arrow" />
+            android:src="@drawable/back_arrow_white" />
 
         <TextView
             android:id="@+id/textView_ServiceDetail"
@@ -84,8 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123 Queen Street,Sydney"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvaddress1"

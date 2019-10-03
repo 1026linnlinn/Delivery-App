@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mounts.lenovo.delivery3.R;
 import com.mounts.lenovo.delivery3.api.OnItemClickListener;
 import com.mounts.lenovo.delivery3.response.AddsOnServices;
-import com.mounts.lenovo.delivery3.response.Categories;
 import com.mounts.lenovo.delivery3.retrofit.RetrofitService;
 import com.squareup.picasso.Picasso;
 
@@ -22,8 +21,7 @@ public class SectionListDataHolder extends RecyclerView.ViewHolder {
 //    }
     private OnItemClickListener listener;
     private ImageView itemImage;
-    private TextView textView01, textView03;
-//    private LinearLayout layoutMedicine;
+    private TextView shopName, shopAddress;
 
     public SectionListDataHolder(@NonNull View itemView, OnItemClickListener listener) {
         super(itemView);
@@ -33,15 +31,15 @@ public class SectionListDataHolder extends RecyclerView.ViewHolder {
 
     private void initHolder(View itemView) {
         itemImage = itemView.findViewById(R.id.itemImage);
-        textView01 = itemView.findViewById(R.id.textView01);
-        textView03 = itemView.findViewById(R.id.textView03);
+        shopName = itemView.findViewById(R.id.shop_name);
+        shopAddress = itemView.findViewById(R.id.shop_address);
     }
 
     public void bindData(final AddsOnServices addsOnServices) {
 
         Picasso.get().load(RetrofitService.BASE_URL + "/api/download_image/" + addsOnServices.logo).into(itemImage);
-        textView01.setText(addsOnServices.name);
-        textView03.setText(addsOnServices.address);
+        shopName.setText(addsOnServices.name);
+        shopAddress.setText(addsOnServices.address);
     }
 
     public static SectionListDataHolder create(LayoutInflater inflater, ViewGroup parent, OnItemClickListener listener) {

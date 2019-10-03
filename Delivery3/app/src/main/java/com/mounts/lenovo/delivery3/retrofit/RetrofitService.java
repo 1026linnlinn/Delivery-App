@@ -15,8 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitService {
-
-
     //    public static final String BASE_URL = "http://192.168.100.173:8000";
 //
 //    public Retrofit getService() {
@@ -31,8 +29,6 @@ public class RetrofitService {
     public static final String BASE_URL = "http://192.168.100.199:8000";
 
     public Retrofit getService() {
-
-
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override

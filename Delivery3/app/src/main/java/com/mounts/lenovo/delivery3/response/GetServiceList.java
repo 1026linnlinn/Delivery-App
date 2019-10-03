@@ -6,12 +6,6 @@ import java.util.List;
 
 public class GetServiceList{
 
-    @SerializedName("id")
-    public int cateId;
-
-    @SerializedName("name")
-    public String cateName;
-
-    @SerializedName("adds_on_services")
-    public List<AddsOnServices> addsOnServices;
+    @SerializedName("data")
+    public List<CategoryData> categoryData;
 }

@@ -1,7 +1,10 @@
 package com.mounts.lenovo.delivery3.api;
 
+import androidx.transition.Slide;
+
 import com.mounts.lenovo.delivery3.response.AddOrderInfo;
 import com.mounts.lenovo.delivery3.response.DetailResponse;
+import com.mounts.lenovo.delivery3.response.GetServiceDetails;
 import com.mounts.lenovo.delivery3.response.GetServiceList;
 import com.mounts.lenovo.delivery3.response.GetTown;
 import com.mounts.lenovo.delivery3.response.LoginResponse;
@@ -69,4 +72,7 @@ public interface ApiInterface {
 
     @GET("/api/user/adds_on_service/list?")
     Call<GetServiceList> getServiceList();
+
+    @GET("/user/adds_on_service/detail/{{id}}")
+    Call<GetServiceDetails> getServiceDetail();
 }

@@ -129,7 +129,6 @@ public class ServiceDetail extends AppCompatActivity {
                 });
                 dialog.show();
             }
-//            "ServiceDetail1" mhar lo tr twe nae nae kyi loh ya tal nor,ma lo tog yin tog delete lite tog...
         });
     }
 

@@ -35,7 +35,7 @@ import android.widget.FrameLayout;
 
 import static android.view.View.VISIBLE;
 
-public class List<G> extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, SeeAllHolder.OnItemClickListener {
+public class Lists extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, SeeAllHolder.OnItemClickListener {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     SeeAllAdapter adapter;
@@ -44,7 +44,7 @@ public class List<G> extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("Arrive", "List.java");
+        Log.e("Arrive", "Lists.java");
         setContentView(R.layout.activity_list);
         toolbar = findViewById(R.id.toolbarList);
         setSupportActionBar(toolbar);

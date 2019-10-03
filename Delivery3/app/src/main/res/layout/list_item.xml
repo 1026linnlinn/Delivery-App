@@ -22,7 +22,7 @@
                 android:layout_height="32dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="14dp"
-                android:text="Most Popular"
+                android:text="Category 0"
                 android:textColor="#000"
                 android:textSize="18dp"
                 android:textStyle="bold" />
